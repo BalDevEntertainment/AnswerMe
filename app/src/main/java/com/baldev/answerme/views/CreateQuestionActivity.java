@@ -7,8 +7,6 @@ import android.widget.EditText;
 
 import com.baldev.answerme.R;
 import com.baldev.answerme.model.DTOs.QuestionDTO;
-import com.baldev.answerme.model.helpers.FirebaseDatabaseHelper;
-import com.baldev.answerme.model.helpers.FirebaseHelper;
 import com.baldev.answerme.model.helpers.FirebaseManager;
 import com.baldev.answerme.model.helpers.FirebaseManagerImplementation;
 

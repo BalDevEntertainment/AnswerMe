@@ -1,18 +1,11 @@
 package com.baldev.answerme.model.helpers;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.model.helpers.FirebaseDatabaseHelper.FirebaseRepliesListener;
 import com.baldev.answerme.model.helpers.FirebaseDatabaseHelper.FirebaseTokenCallback;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FirebaseManagerImplementation implements FirebaseManager {

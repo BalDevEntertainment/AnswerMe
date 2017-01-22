@@ -1,6 +1,5 @@
 package com.baldev.answerme.mvp;
 
-import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 
 import com.baldev.answerme.model.DTOs.QuestionDTO;
