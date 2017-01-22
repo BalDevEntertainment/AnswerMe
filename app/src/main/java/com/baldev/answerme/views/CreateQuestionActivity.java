@@ -34,7 +34,8 @@ public class CreateQuestionActivity extends AppCompatActivity { // TODO: 22/01/2
 
 	@OnClick(R.id.button_send)
 	public void onSendPressed(){
-		this.firebaseManager.addNewQuestion(new QuestionDTO(this.questionField.getText().toString()));
+		String questionText = this.questionField.getText().toString();
+		this.firebaseManager.addNewQuestion(questionText);
 		this.finish();
 	}
 }

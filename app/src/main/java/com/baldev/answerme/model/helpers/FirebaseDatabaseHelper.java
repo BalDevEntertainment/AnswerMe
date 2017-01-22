@@ -21,6 +21,8 @@ public interface FirebaseDatabaseHelper {
 
 	void getQuestions(Callback callback);
 
+	void getOwnQuestions(Callback callback);
+
 	interface FirebaseTokenCallback {
 		void onTokenRetrieved(String string);
 

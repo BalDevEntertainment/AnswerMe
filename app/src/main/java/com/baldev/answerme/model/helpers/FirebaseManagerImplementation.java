@@ -46,8 +46,8 @@ public class FirebaseManagerImplementation implements FirebaseManager {
 	}
 
 	@Override
-	public void addNewQuestion(final QuestionDTO questionDTO) {
-		this.firebaseDatabaseHelper.saveQuestion(questionDTO);
+	public void addNewQuestion(final String questionText) {
+		this.firebaseDatabaseHelper.saveQuestion(new QuestionDTO(questionText, this.firebaseDatabaseHelper.getMyToken()));
 	}
 
 	@Override

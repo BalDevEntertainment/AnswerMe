@@ -1,9 +1,7 @@
 package com.baldev.answerme.views;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -28,13 +26,11 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.View {
+public class OtherPeopleQuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.View {
 
 	@BindView(R.id.list_results) RecyclerView resultsList;
 	@BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
-	@BindView(R.id.fab_add_new_question) FloatingActionButton floatingActionButton;
 
 	@Inject
 	Presenter presenter;
@@ -53,11 +49,15 @@ public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View view = inflater.inflate(R.layout.fragment_questions_feed, container, false);
+		View view = inflater.inflate(getLayoutResourceId(), container, false);
 		ButterKnife.bind(this, view);
 		this.setupAdapter();
 		this.setupSwipeRefreshLayout();
 		return view;
+	}
+
+	protected int getLayoutResourceId() {
+		return R.layout.fragment_questions_feed;
 	}
 
 	protected void setupComponent() {
@@ -98,12 +98,6 @@ public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.
 		if (!this.swipeRefreshLayout.isRefreshing()) {
 			this.swipeRefreshLayout.setRefreshing(true);
 		}
-	}
-
-	@OnClick(R.id.fab_add_new_question)
-	public void onFabClick(){
-		Intent intent = new Intent(this.getActivity(), CreateQuestionActivity.class);
-		startActivity(intent);
 	}
 
 

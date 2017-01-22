@@ -10,7 +10,7 @@ public interface FirebaseManager {
 
 	void askForToken(TokenCallback callback);
 
-	void addNewQuestion(QuestionDTO questionDTO);
+	void addNewQuestion(String questionText);
 
 	void getQuestions(Callback callback);
 

@@ -2,7 +2,7 @@ package com.baldev.answerme.components;
 
 import com.baldev.answerme.modules.AppModule;
 import com.baldev.answerme.modules.QuestionsFeedModule;
-import com.baldev.answerme.views.QuestionsFeedFragment;
+import com.baldev.answerme.views.OtherPeopleQuestionsFeedFragment;
 
 import javax.inject.Singleton;
 
@@ -14,6 +14,6 @@ import dagger.Component;
 )
 @SuppressWarnings("package")
 public interface QuestionsFeedComponent {
-	void inject(QuestionsFeedFragment fragment);
+	void inject(OtherPeopleQuestionsFeedFragment fragment);
 }
 

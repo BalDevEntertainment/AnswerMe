@@ -5,7 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.baldev.answerme.views.QuestionsFeedFragment;
+import com.baldev.answerme.views.OtherPeopleQuestionsFeedFragment;
+import com.baldev.answerme.views.OwnQuestionsFeedFragment;
 
 public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
 
@@ -15,8 +16,12 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int i) {
-		QuestionsFeedFragment questionsFeedFragment = new QuestionsFeedFragment();
-		return questionsFeedFragment;
+		switch (i){
+			case 1:
+				return new OwnQuestionsFeedFragment();
+			default:
+				return new OtherPeopleQuestionsFeedFragment();
+		}
 	}
 
 	@Override

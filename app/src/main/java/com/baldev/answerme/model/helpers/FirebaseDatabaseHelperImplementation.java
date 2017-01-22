@@ -24,6 +24,7 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 	private DatabaseReference database;
 	private DatabaseReference usersReference;
 	private DatabaseReference questionsReference;
+	private DatabaseReference ownQuestionsReference;
 	private DatabaseReference myMessagesReference; //TODO see how to avoid null
 	private String myToken;
 	private FirebaseTokenCallback tokenCallback;
@@ -64,6 +65,7 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 	public void saveQuestion(QuestionDTO questionDTO) {
 		DatabaseReference newQuestion = questionsReference.push();
 		newQuestion.setValue(questionDTO);
+		usersReference.child(myToken).child(KEY_QUESTIONS).child(newQuestion.getKey()).setValue(questionDTO);
 	}
 
 	@Override
@@ -110,9 +112,9 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				ArrayList<QuestionDTO> result = new ArrayList<>();
-				for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-					QuestionDTO post = postSnapshot.getValue(QuestionDTO.class);
-					result.add(post);
+				for (DataSnapshot questions: dataSnapshot.getChildren()) {
+					QuestionDTO question = questions.getValue(QuestionDTO.class);
+					result.add(question);
 				}
 				callback.onQuestionsRetrieved(result);
 			}
@@ -122,6 +124,26 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			}
 		};
 		questionsReference.addValueEventListener(postListener);
+	}
+
+	@Override
+	public void getOwnQuestions(Callback callback) {
+		ValueEventListener postListener = new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				ArrayList<QuestionDTO> result = new ArrayList<>();
+				for (DataSnapshot questions: dataSnapshot.getChildren()) {
+					QuestionDTO question = questions.getValue(QuestionDTO.class);
+					result.add(question);
+				}
+				callback.onQuestionsRetrieved(result);
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+			}
+		};
+		ownQuestionsReference.addValueEventListener(postListener);
 	}
 
 	private void setupReferences() {
@@ -136,6 +158,7 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			this.myMessagesReference = this.questionsReference.child(myToken);
 			DatabaseReference userToken = this.usersReference.child(myToken);
 			userToken.child(KEY_TOKEN).setValue(myToken);
+			this.ownQuestionsReference = usersReference.child(myToken).child(KEY_QUESTIONS);
 		}
 	}
 

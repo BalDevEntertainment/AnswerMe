@@ -7,7 +7,7 @@ import com.baldev.answerme.model.helpers.FirebaseManagerImplementation;
 import com.baldev.answerme.mvp.DataModel;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.View;
-import com.baldev.answerme.views.QuestionsFeedFragment;
+import com.baldev.answerme.views.OtherPeopleQuestionsFeedFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class QuestionsFeedPresenter implements Presenter, NewReplyListener {
 	public QuestionsFeedPresenter(View view, DataModel dataModel) {
 		this.view = view;
 		this.dataModel = dataModel;
-		this.firebaseManager = new FirebaseManagerImplementation(((QuestionsFeedFragment)view).getContext(), this); // TODO: 22/01/2017 move to model
+		this.firebaseManager = new FirebaseManagerImplementation(((OtherPeopleQuestionsFeedFragment)view).getContext(), this); // TODO: 22/01/2017 move to model
 	}
 
 	@Override
