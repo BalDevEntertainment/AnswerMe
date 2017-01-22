@@ -5,7 +5,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.baldev.answerme.model.DTOs.QuestionDTO;
-import com.baldev.answerme.model.DTOs.QuestionListDTO;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,6 +15,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Deprecated
 public class FirebaseHelper {
 
 	private static final String TAG = "FirebaseHelper";

@@ -1,11 +1,11 @@
 package com.baldev.answerme.mvp;
 
-import com.baldev.answerme.model.DTOs.Tweet;
+import com.baldev.answerme.model.DTOs.QuestionDTO;
 
 import java.util.List;
 
 public interface DataModel {
 
-	void storeDataToRetain(List<Tweet> retainedTweets, String lastSearch);
+	void storeDataToRetain(List<QuestionDTO> retainedQuestions, String lastSearch);
 
 }

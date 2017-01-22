@@ -1,9 +1,11 @@
 package com.baldev.answerme.presenters;
 
-import com.baldev.answerme.model.DTOs.Tweet;
-import com.baldev.answerme.model.helpers.FirebaseHelper;
+import com.baldev.answerme.model.DTOs.QuestionDTO;
+import com.baldev.answerme.model.helpers.FirebaseManager;
+import com.baldev.answerme.model.helpers.FirebaseManager.NewReplyListener;
+import com.baldev.answerme.model.helpers.FirebaseManagerImplementation;
 import com.baldev.answerme.mvp.DataModel;
-import com.baldev.answerme.mvp.QuestionsFeedMVP;
+import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.View;
 import com.baldev.answerme.views.QuestionsFeedFragment;
 
@@ -15,7 +17,7 @@ import javax.inject.Inject;
 import rx.Subscription;
 import rx.subjects.PublishSubject;
 
-public class QuestionsFeedPresenter implements QuestionsFeedMVP.Presenter {
+public class QuestionsFeedPresenter implements Presenter, NewReplyListener {
 
 	private static final int SEARCH_DELAY = 200;
 
@@ -24,10 +26,14 @@ public class QuestionsFeedPresenter implements QuestionsFeedMVP.Presenter {
 	private PublishSubject<String> searchResultsSubject = PublishSubject.create();
 	private List<Subscription> subscriptions = new ArrayList<>();
 
+
+	private final FirebaseManager firebaseManager; // TODO: 22/01/2017 move to model
+
 	@Inject
 	public QuestionsFeedPresenter(View view, DataModel dataModel) {
 		this.view = view;
 		this.dataModel = dataModel;
+		this.firebaseManager = new FirebaseManagerImplementation(((QuestionsFeedFragment)view).getContext(), this); // TODO: 22/01/2017 move to model
 	}
 
 	@Override
@@ -45,12 +51,17 @@ public class QuestionsFeedPresenter implements QuestionsFeedMVP.Presenter {
 	}
 
 	@Override
-	public void storeDataToRetain(List<Tweet> tweets, String lastSearch) {
-		this.dataModel.storeDataToRetain(tweets, lastSearch);
+	public void storeDataToRetain(List<QuestionDTO> questionsDTO, String lastSearch) {
+		this.dataModel.storeDataToRetain(questionsDTO, lastSearch);
 	}
 
 	@Override
 	public void onRefresh() {
-		FirebaseHelper.getQuestions(((QuestionsFeedFragment)view).getActivity(), view::onNewData); // TODO: 22/01/2017 improve this getactivity shit
+		firebaseManager.getQuestions(view::onNewData);
+	}
+
+	@Override
+	public void onNewReply(QuestionDTO reply) {
+
 	}
 }

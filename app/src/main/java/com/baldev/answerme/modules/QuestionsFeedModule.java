@@ -2,7 +2,7 @@ package com.baldev.answerme.modules;
 
 import android.app.Application;
 
-import com.baldev.answerme.model.DTOs.Tweet;
+import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.mvp.DataModel;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.View;
@@ -34,7 +34,7 @@ public class QuestionsFeedModule {
 	public DataModel provideModel(Application context) {
 		return new DataModel() {
 			@Override
-			public void storeDataToRetain(List<Tweet> retainedTweets, String lastSearch) {
+			public void storeDataToRetain(List<QuestionDTO> retainedQuestions, String lastSearch) {
 
 			}
 		};

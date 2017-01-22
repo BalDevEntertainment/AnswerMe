@@ -11,5 +11,6 @@
     <string name="item_detail_tags">"Tags"</string>
     <string name="app_label">no seee</string>
     <string name="search_hint">Search</string>
+    <string name="notification_new_reply_title">New reply!</string>
 
 </resources>

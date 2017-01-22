@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "194431175933",
-    "firebase_url": "https://answerme-7480b.firebaseio.com",
-    "project_id": "answerme-7480b",
-    "storage_bucket": "answerme-7480b.appspot.com"
+    "project_number": "822135728773",
+    "firebase_url": "https://answerme-30cea.firebaseio.com",
+    "project_id": "answerme-30cea",
+    "storage_bucket": "answerme-30cea.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:194431175933:android:f13f29a431ff8a0a",
+        "mobilesdk_app_id": "1:822135728773:android:f13f29a431ff8a0a",
         "android_client_info": {
           "package_name": "com.baldev.answerme"
         }
       },
       "oauth_client": [
         {
-          "client_id": "194431175933-6prn7ht4r63oke78f3oeu7ssqsnl713e.apps.googleusercontent.com",
+          "client_id": "822135728773-fc8hpdsd8gvkmcj6vf0hagpsh16o99jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.baldev.answerme",
+            "certificate_hash": "F5734E1DFDB99057EB8BEB39228BFB5A17781522"
+          }
+        },
+        {
+          "client_id": "822135728773-baisp8c1qqbpes8tvqq9hkafgjbspboh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDiO1aLM5Dl5U8HNHgEsGwgZncx-Nrc87c"
+          "current_key": "AIzaSyAogzwb2qTBQeHpmcFozOshli3jtHwwC24"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822135728773-baisp8c1qqbpes8tvqq9hkafgjbspboh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
