@@ -9,12 +9,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    applicationVariants.all { variant ->
-        variant.buildConfigField "String", "TWITTER_API_KEY", "\"" + getApiKey() + "\""
-    }
     defaultConfig {
-        applicationId "com.baldev.twitterviewer"
-        minSdkVersion 10
+        applicationId "com.baldev.answerme"
+        minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -34,13 +31,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-def getApiKey() {
-    def Properties props = new Properties()
-    File configFile = file('secrets.properties')
-    props.load(new FileInputStream(configFile))
-    return props['TWITTER_API_KEY']
 }
 
 dependencies {
@@ -80,3 +70,5 @@ dependencies {
 
     compile 'com.google.firebase:firebase-database:9.6.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

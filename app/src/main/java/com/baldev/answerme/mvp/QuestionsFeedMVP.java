@@ -3,6 +3,7 @@ package com.baldev.answerme.mvp;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 
+import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.model.DTOs.Tweet;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface QuestionsFeedMVP {
 	interface View {
 		void startLoading();
 
-		void onNewData(List<Tweet> tweets);
+		void onNewData(List<QuestionDTO> tweets);
 
 		void storeDataToRetain();
 	}

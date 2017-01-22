@@ -1,27 +1,25 @@
 package com.baldev.answerme.views;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.baldev.answerme.R;
 import com.baldev.answerme.components.DaggerQuestionsFeedComponent;
-import com.baldev.answerme.model.DTOs.Tweet;
+import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.modules.AppModule;
 import com.baldev.answerme.modules.QuestionsFeedModule;
 import com.baldev.answerme.mvp.QuestionsFeedMVP;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
-import com.baldev.answerme.views.adapters.TwitterListAdapter;
+import com.baldev.answerme.views.adapters.QuestionsListAdapter;
 
 import java.util.List;
 
@@ -30,17 +28,16 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.View, OnQueryTextListener {
+public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.View {
 
 	@BindView(R.id.list_results) RecyclerView resultsList;
 	@BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
-	@BindView(R.id.title) TextView title;
 
 	@Inject
 	Presenter presenter;
 
 	@Inject
-	TwitterListAdapter adapter;
+	QuestionsListAdapter adapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -87,19 +84,8 @@ public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.
 	}
 
 	@Override
-	public boolean onQueryTextSubmit(String query) {
-		return true;
-	}
-
-	@Override
-	public boolean onQueryTextChange(final String query) {
-		this.presenter.getTweetsBySearchTerm(query);
-		return true;
-	}
-
-	@Override
-	public void onNewData(List<Tweet> tweets) {
-		this.adapter.setTweets(tweets);
+	public void onNewData(List<QuestionDTO> questions) {
+		this.adapter.setQuestions(questions);
 		this.adapter.notifyDataSetChanged();
 		this.swipeRefreshLayout.setRefreshing(false);
 	}
@@ -110,6 +96,7 @@ public class QuestionsFeedFragment extends Fragment implements QuestionsFeedMVP.
 			this.swipeRefreshLayout.setRefreshing(true);
 		}
 	}
+
 
 	public void storeDataToRetain() {
 	}

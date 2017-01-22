@@ -16,7 +16,6 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public Fragment getItem(int i) {
 		QuestionsFeedFragment questionsFeedFragment = new QuestionsFeedFragment();
-		questionsFeedFragment.setTitle(getPageTitle(i));
 		return questionsFeedFragment;
 	}
 

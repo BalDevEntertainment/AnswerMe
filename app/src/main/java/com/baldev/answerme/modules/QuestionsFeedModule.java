@@ -2,12 +2,14 @@ package com.baldev.answerme.modules;
 
 import android.app.Application;
 
-import com.baldev.answerme.model.DataManager;
+import com.baldev.answerme.model.DTOs.Tweet;
 import com.baldev.answerme.mvp.DataModel;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.View;
 import com.baldev.answerme.presenters.QuestionsFeedPresenter;
-import com.baldev.answerme.views.adapters.TwitterListAdapter;
+import com.baldev.answerme.views.adapters.QuestionsListAdapter;
+
+import java.util.List;
 
 import javax.inject.Singleton;
 
@@ -30,7 +32,12 @@ public class QuestionsFeedModule {
 	@Singleton
 	@Provides
 	public DataModel provideModel(Application context) {
-		return new DataManager(context);
+		return new DataModel() {
+			@Override
+			public void storeDataToRetain(List<Tweet> retainedTweets, String lastSearch) {
+
+			}
+		};
 	}
 
 	@Provides
@@ -39,8 +46,8 @@ public class QuestionsFeedModule {
 	}
 
 	@Provides
-	public TwitterListAdapter provideTwitterListAdapter() {
-		return new TwitterListAdapter();
+	public QuestionsListAdapter provideTwitterListAdapter() {
+		return new QuestionsListAdapter();
 	}
 
 }
