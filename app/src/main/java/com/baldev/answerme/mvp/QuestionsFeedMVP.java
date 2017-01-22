@@ -7,7 +7,7 @@ import com.baldev.answerme.model.DTOs.Tweet;
 
 import java.util.List;
 
-public interface TwitterFeedMVP {
+public interface QuestionsFeedMVP {
 
 	interface Presenter extends OnRefreshListener {
 		@Override
@@ -21,9 +21,6 @@ public interface TwitterFeedMVP {
 	}
 
 	interface View {
-		@NonNull
-		String getSearchQuery();
-
 		void startLoading();
 
 		void onNewData(List<Tweet> tweets);

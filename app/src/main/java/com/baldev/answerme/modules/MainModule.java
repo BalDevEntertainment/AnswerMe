@@ -2,12 +2,10 @@ package com.baldev.answerme.modules;
 
 import android.support.v4.app.FragmentManager;
 
-import com.baldev.answerme.R;
 import com.baldev.answerme.mvp.MainActivityMVP.Presenter;
 import com.baldev.answerme.mvp.MainActivityMVP.View;
-import com.baldev.answerme.mvp.TwitterFeedMVP;
 import com.baldev.answerme.presenters.MainPresenter;
-import com.baldev.answerme.views.TwitterFeedFragment;
+import com.baldev.answerme.views.adapters.MainFragmentPagerAdapter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -28,12 +26,12 @@ public class MainModule {
 	}
 
 	@Provides
-	public Presenter providePresenter(View view, TwitterFeedMVP.View twitterFeedView) {
-		return new MainPresenter(view, twitterFeedView);
+	public Presenter providePresenter(View view) {
+		return new MainPresenter(view);
 	}
 
 	@Provides
-	public TwitterFeedMVP.View provideFragment() {
-		return (TwitterFeedFragment) fragmentManager.findFragmentById(R.id.fragment_twitter_feed);
+	public MainFragmentPagerAdapter providePagerAdapter() {
+		return new MainFragmentPagerAdapter(fragmentManager);
 	}
 }

@@ -2,8 +2,8 @@ package com.baldev.answerme.presenters;
 
 import com.baldev.answerme.model.DTOs.Tweet;
 import com.baldev.answerme.mvp.DataModel;
-import com.baldev.answerme.mvp.TwitterFeedMVP;
-import com.baldev.answerme.mvp.TwitterFeedMVP.View;
+import com.baldev.answerme.mvp.QuestionsFeedMVP;
+import com.baldev.answerme.mvp.QuestionsFeedMVP.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
-public class TwitterFeedPresenter implements TwitterFeedMVP.Presenter {
+public class QuestionsFeedPresenter implements QuestionsFeedMVP.Presenter {
 
 	private static final int SEARCH_DELAY = 400;
 
@@ -26,7 +26,7 @@ public class TwitterFeedPresenter implements TwitterFeedMVP.Presenter {
 	private List<Subscription> subscriptions = new ArrayList<>();
 
 	@Inject
-	public TwitterFeedPresenter(View view, DataModel dataModel) {
+	public QuestionsFeedPresenter(View view, DataModel dataModel) {
 		this.view = view;
 		this.dataModel = dataModel;
 		this.setupSearch();
@@ -53,7 +53,6 @@ public class TwitterFeedPresenter implements TwitterFeedMVP.Presenter {
 
 	@Override
 	public void onRefresh() {
-		this.getTweetsBySearchTerm(this.view.getSearchQuery());
 	}
 
 	private void setupSearch() {
