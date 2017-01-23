@@ -53,6 +53,11 @@ public class OtherPeopleQuestionsFeedPresenter implements Presenter, NewReplyLis
 	}
 
 	@Override
+	public void onQuestionClicked(QuestionDTO dto) {
+		view.openAnswerQuestionActivity(dto);
+	}
+
+	@Override
 	public void onRefresh() {
 		firebaseManager.getQuestions(view::onNewData);
 	}

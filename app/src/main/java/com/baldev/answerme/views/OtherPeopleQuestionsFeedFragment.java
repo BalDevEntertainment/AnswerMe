@@ -1,5 +1,6 @@
 package com.baldev.answerme.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -78,6 +79,7 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
 		this.resultsList.setLayoutManager(layoutManager);
 		this.resultsList.setAdapter(this.adapter);
+		this.adapter.setListener(this.presenter);
 	}
 
 	private void setupSwipeRefreshLayout() {
@@ -101,6 +103,13 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 
 
 	public void storeDataToRetain() {
+	}
+
+	@Override
+	public void openAnswerQuestionActivity(QuestionDTO questionDTO) {
+		Intent intent = new Intent(this.getActivity(), AnswerQuestionActivity.class);
+		intent.putExtra(AnswerQuestionActivity.QUESTION_TEXT, questionDTO.getQuestion());
+		startActivity(intent);
 	}
 
 }

@@ -30,6 +30,10 @@
             android:name="com.baldev.answerme.views.CreateQuestionActivity"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name="com.baldev.answerme.views.AnswerQuestionActivity"
+            android:label="@string/app_name">
+        </activity>
 
     </application>
 
