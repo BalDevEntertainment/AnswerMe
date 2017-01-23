@@ -1,6 +1,7 @@
 package com.baldev.answerme.model.helpers;
 
 
+import com.baldev.answerme.model.DTOs.AnswerDTO;
 import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.model.helpers.FirebaseManagerImplementation.Callback;
 
@@ -22,6 +23,8 @@ public interface FirebaseDatabaseHelper {
 	void getQuestions(Callback callback);
 
 	void getOwnQuestions(Callback callback);
+
+	void saveQuestionReply(QuestionDTO questionId);
 
 	interface FirebaseTokenCallback {
 		void onTokenRetrieved(String string);

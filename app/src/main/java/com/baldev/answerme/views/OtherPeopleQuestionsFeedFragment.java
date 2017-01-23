@@ -108,7 +108,7 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 	@Override
 	public void openAnswerQuestionActivity(QuestionDTO questionDTO) {
 		Intent intent = new Intent(this.getActivity(), AnswerQuestionActivity.class);
-		intent.putExtra(AnswerQuestionActivity.QUESTION_TEXT, questionDTO.getQuestion());
+		intent.putExtra(AnswerQuestionActivity.QUESTION_DTO, questionDTO);
 		startActivity(intent);
 	}
 

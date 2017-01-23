@@ -71,6 +71,11 @@ public class FirebaseManagerImplementation implements FirebaseManager {
 		this.firebaseDatabaseHelper.invalidateToken(token);
 	}
 
+	@Override
+	public void saveQuestionReply(QuestionDTO questionDTO) {
+		this.firebaseDatabaseHelper.saveQuestionReply(questionDTO);
+	}
+
 	public static void registerToken() {
 		FirebaseDatabaseHelper firebaseDatabaseHelper = FirebaseDatabaseHelperImplementation.getInstance();
 		firebaseDatabaseHelper.registerFCMToken();

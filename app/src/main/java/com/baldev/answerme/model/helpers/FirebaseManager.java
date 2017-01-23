@@ -3,6 +3,7 @@ package com.baldev.answerme.model.helpers;
 //Facade for messages
 
 
+import com.baldev.answerme.model.DTOs.AnswerDTO;
 import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.model.helpers.FirebaseManagerImplementation.Callback;
 
@@ -19,6 +20,8 @@ public interface FirebaseManager {
 	boolean hasTokenBeenRetrieved();
 
 	void invalidateToken(String token);
+
+	void saveQuestionReply(QuestionDTO questionId);
 
 	interface NewReplyListener {
 		void onNewReply(QuestionDTO reply);

@@ -17,6 +17,7 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 	private static final String KEY_DATABASE = BuildConfig.DATABASE;
 	private static final String KEY_USERS = "users";
 	private static final String KEY_QUESTIONS = "questions";
+	private static final String KEY_ANSWERS = "answers";
 	private static final String KEY_TOKEN = "firebaseToken";
 	private static final String KEY_QUESTION = "message";
 	private static FirebaseDatabaseHelperImplementation ourInstance = new FirebaseDatabaseHelperImplementation();
@@ -66,6 +67,7 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 		DatabaseReference newQuestion = questionsReference.push();
 		newQuestion.setValue(questionDTO);
 		usersReference.child(myToken).child(KEY_QUESTIONS).child(newQuestion.getKey()).setValue(questionDTO);
+		questionDTO.setId(newQuestion.getKey());
 	}
 
 	@Override
@@ -112,8 +114,9 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				ArrayList<QuestionDTO> result = new ArrayList<>();
-				for (DataSnapshot questions: dataSnapshot.getChildren()) {
-					QuestionDTO question = questions.getValue(QuestionDTO.class);
+				for (DataSnapshot questionSnapshot : dataSnapshot.getChildren()) {
+					QuestionDTO question = questionSnapshot.getValue(QuestionDTO.class);
+					question.setId(questionSnapshot.getKey());
 					result.add(question);
 				}
 				callback.onQuestionsRetrieved(result);
@@ -132,7 +135,7 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				ArrayList<QuestionDTO> result = new ArrayList<>();
-				for (DataSnapshot questions: dataSnapshot.getChildren()) {
+				for (DataSnapshot questions : dataSnapshot.getChildren()) {
 					QuestionDTO question = questions.getValue(QuestionDTO.class);
 					result.add(question);
 				}
@@ -144,6 +147,24 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			}
 		};
 		ownQuestionsReference.addValueEventListener(postListener);
+	}
+
+	@Override
+	public void saveQuestionReply(QuestionDTO questionDTO) { // TODO: 23/01/2017 refactor this bullshit hard
+		DatabaseReference questionReference = usersReference.child(questionDTO.getUserId()).child(KEY_QUESTIONS).child(questionDTO.getId());
+		questionReference.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				QuestionDTO questionDTO1 = dataSnapshot.getValue(QuestionDTO.class);
+				questionDTO1.getAnswers().add(questionDTO.getAnswers().get(0));
+				questionReference.child(KEY_ANSWERS).setValue(questionDTO1.getAnswers());
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+
+			}
+		});
 	}
 
 	private void setupReferences() {
