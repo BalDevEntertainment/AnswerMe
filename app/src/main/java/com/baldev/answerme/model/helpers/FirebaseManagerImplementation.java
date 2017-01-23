@@ -56,6 +56,11 @@ public class FirebaseManagerImplementation implements FirebaseManager {
 	}
 
 	@Override
+	public void getOwnQuestions(Callback callback) {
+		this.firebaseDatabaseHelper.getOwnQuestions(callback);
+	}
+
+	@Override
 	public boolean hasTokenBeenRetrieved() {
 		String myToken = this.firebaseDatabaseHelper.getMyToken();
 		return myToken != null && !myToken.equals("");

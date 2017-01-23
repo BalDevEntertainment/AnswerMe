@@ -7,6 +7,7 @@ import com.baldev.answerme.mvp.DataModel;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.View;
 import com.baldev.answerme.presenters.OtherPeopleQuestionsFeedPresenter;
+import com.baldev.answerme.presenters.OwnQuestionsFeedPresenter;
 import com.baldev.answerme.views.adapters.QuestionsListAdapter;
 
 import java.util.List;
@@ -17,10 +18,10 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class QuestionsFeedModule {
+public class OwnQuestionsModule{
 	private View view;
 
-	public QuestionsFeedModule(View view) {
+	public OwnQuestionsModule(View view) {
 		this.view = view;
 	}
 
@@ -42,7 +43,7 @@ public class QuestionsFeedModule {
 
 	@Provides
 	public Presenter providePresenter(View view, DataModel dataModel) {
-		return new OtherPeopleQuestionsFeedPresenter(view, dataModel);
+		return new OwnQuestionsFeedPresenter(view, dataModel);
 	}
 
 	@Provides

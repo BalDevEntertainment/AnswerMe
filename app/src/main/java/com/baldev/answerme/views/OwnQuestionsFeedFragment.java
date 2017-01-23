@@ -2,6 +2,7 @@ package com.baldev.answerme.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -14,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baldev.answerme.R;
+import com.baldev.answerme.components.DaggerOwnQuestionsComponent;
 import com.baldev.answerme.components.DaggerQuestionsFeedComponent;
 import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.modules.AppModule;
+import com.baldev.answerme.modules.OwnQuestionsModule;
 import com.baldev.answerme.modules.QuestionsFeedModule;
 import com.baldev.answerme.mvp.QuestionsFeedMVP;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
@@ -35,6 +38,15 @@ public class OwnQuestionsFeedFragment extends OtherPeopleQuestionsFeedFragment i
 	@Override
 	protected int getLayoutResourceId() {
 		return R.layout.fragment_questions_mine;
+	}
+
+	@Override
+	protected void setupComponent() {
+		DaggerOwnQuestionsComponent.builder()
+				.ownQuestionsModule(new OwnQuestionsModule(this))
+				.appModule(new AppModule(this.getActivity().getApplication()))
+				.build()
+				.inject(this);
 	}
 
 	@OnClick(R.id.fab_add_new_question)

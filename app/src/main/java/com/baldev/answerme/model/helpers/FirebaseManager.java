@@ -14,6 +14,8 @@ public interface FirebaseManager {
 
 	void getQuestions(Callback callback);
 
+	void getOwnQuestions(Callback callback);
+
 	boolean hasTokenBeenRetrieved();
 
 	void invalidateToken(String token);

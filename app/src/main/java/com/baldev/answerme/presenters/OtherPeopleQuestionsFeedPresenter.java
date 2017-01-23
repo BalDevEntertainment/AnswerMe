@@ -17,20 +17,17 @@ import javax.inject.Inject;
 import rx.Subscription;
 import rx.subjects.PublishSubject;
 
-public class QuestionsFeedPresenter implements Presenter, NewReplyListener {
+public class OtherPeopleQuestionsFeedPresenter implements Presenter, NewReplyListener {
 
-	private static final int SEARCH_DELAY = 200;
-
-	private final View view;
+	protected final View view;
 	private final DataModel dataModel;
 	private PublishSubject<String> searchResultsSubject = PublishSubject.create();
 	private List<Subscription> subscriptions = new ArrayList<>();
 
-
-	private final FirebaseManager firebaseManager; // TODO: 22/01/2017 move to model
+	protected final FirebaseManager firebaseManager; // TODO: 22/01/2017 move to model
 
 	@Inject
-	public QuestionsFeedPresenter(View view, DataModel dataModel) {
+	public OtherPeopleQuestionsFeedPresenter(View view, DataModel dataModel) {
 		this.view = view;
 		this.dataModel = dataModel;
 		this.firebaseManager = new FirebaseManagerImplementation(((OtherPeopleQuestionsFeedFragment)view).getContext(), this); // TODO: 22/01/2017 move to model

@@ -68,7 +68,6 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 				.inject(this);
 	}
 
-
 	@Override
 	public void onDestroy() {
 		this.presenter.unsubscribe();
