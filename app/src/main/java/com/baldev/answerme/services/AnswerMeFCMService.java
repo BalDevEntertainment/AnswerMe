@@ -1,6 +1,7 @@
 package com.baldev.answerme.services;
 
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.support.v7.app.NotificationCompat;
 
 import com.baldev.answerme.R;
@@ -20,6 +21,7 @@ public class AnswerMeFCMService extends FirebaseMessagingService implements NewR
 	public void onMessageReceived(RemoteMessage remoteMessage) {
 		Map<String, String> notificationData = remoteMessage.getData();
 		if (notificationData != null) {
+
 			NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 			builder.setContentTitle(this.getString(R.string.notification_new_reply_title));
 			builder.setContentText(notificationData.get(KEY_BODY));

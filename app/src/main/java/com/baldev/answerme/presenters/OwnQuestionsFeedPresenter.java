@@ -17,6 +17,6 @@ public class OwnQuestionsFeedPresenter extends OtherPeopleQuestionsFeedPresenter
 
 	@Override
 	public void onQuestionClicked(QuestionDTO dto) {
-
+		view.openQuestionDetailsActivity(dto);
 	}
 }

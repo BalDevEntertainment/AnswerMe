@@ -37,4 +37,11 @@ public class OwnQuestionsFeedFragment extends OtherPeopleQuestionsFeedFragment i
 	public void openAnswerQuestionActivity(QuestionDTO questionDTO) {
 
 	}
+
+	@Override
+	public void openQuestionDetailsActivity(QuestionDTO questionDTO) {
+		Intent intent = new Intent(this.getActivity(), QuestionDetailsActivity.class);
+		intent.putExtra(QuestionDetailsActivity.QUESTION_DTO, questionDTO);
+		startActivity(intent);
+	}
 }

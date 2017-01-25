@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "822135728773",
-    "firebase_url": "https://answerme-30cea.firebaseio.com",
-    "project_id": "answerme-30cea",
-    "storage_bucket": "answerme-30cea.appspot.com"
+    "project_number": "248848863699",
+    "firebase_url": "https://answerme-aa001.firebaseio.com",
+    "project_id": "answerme-aa001",
+    "storage_bucket": "answerme-aa001.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:822135728773:android:f13f29a431ff8a0a",
+        "mobilesdk_app_id": "1:248848863699:android:f13f29a431ff8a0a",
         "android_client_info": {
           "package_name": "com.baldev.answerme"
         }
       },
       "oauth_client": [
         {
-          "client_id": "822135728773-fc8hpdsd8gvkmcj6vf0hagpsh16o99jt.apps.googleusercontent.com",
+          "client_id": "248848863699-jmbed51qqesri0vf82noho2q11ogjgrd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.baldev.answerme",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "822135728773-baisp8c1qqbpes8tvqq9hkafgjbspboh.apps.googleusercontent.com",
+          "client_id": "248848863699-te7gnr3sb09bp5fj4hjt33de7u5m5jjh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAogzwb2qTBQeHpmcFozOshli3jtHwwC24"
+          "current_key": "AIzaSyB5nitr35wpOVzAy8wOyvxjo0WcaPVhG-4"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "822135728773-baisp8c1qqbpes8tvqq9hkafgjbspboh.apps.googleusercontent.com",
+              "client_id": "248848863699-te7gnr3sb09bp5fj4hjt33de7u5m5jjh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

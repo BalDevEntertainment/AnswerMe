@@ -72,6 +72,9 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 
 	@Override
 	public void registerListenerForReplies(FirebaseRepliesListener listener) {
+		if(myMessagesReference == null){ // TODO: 24/01/2017 fix this shit
+			return;
+		}
 		this.myMessagesReference.addChildEventListener(new ChildEventListener() {
 			@Override
 			public void onChildAdded(DataSnapshot dataSnapshot, String s) {

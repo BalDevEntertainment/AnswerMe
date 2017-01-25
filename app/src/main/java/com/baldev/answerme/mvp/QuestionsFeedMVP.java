@@ -31,5 +31,7 @@ public interface QuestionsFeedMVP {
 		void storeDataToRetain();
 
 		void openAnswerQuestionActivity(QuestionDTO questionDTO);
+
+		void openQuestionDetailsActivity(QuestionDTO dto);
 	}
 }

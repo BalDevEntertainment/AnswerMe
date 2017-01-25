@@ -20,6 +20,8 @@ import com.baldev.answerme.modules.QuestionsFeedModule;
 import com.baldev.answerme.mvp.QuestionsFeedMVP;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.views.adapters.QuestionsListAdapter;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
@@ -101,7 +103,6 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 		}
 	}
 
-
 	public void storeDataToRetain() {
 	}
 
@@ -110,6 +111,11 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 		Intent intent = new Intent(this.getActivity(), AnswerQuestionActivity.class);
 		intent.putExtra(AnswerQuestionActivity.QUESTION_DTO, questionDTO);
 		startActivity(intent);
+	}
+
+	@Override
+	public void openQuestionDetailsActivity(QuestionDTO dto) {
+		// TODO: 23/01/2017 refactor
 	}
 
 }

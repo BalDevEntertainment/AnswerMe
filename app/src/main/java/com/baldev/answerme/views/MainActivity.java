@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.baldev.answerme.R;
 import com.baldev.answerme.components.DaggerMainComponent;
@@ -11,6 +12,8 @@ import com.baldev.answerme.modules.MainModule;
 import com.baldev.answerme.mvp.MainActivityMVP;
 import com.baldev.answerme.mvp.MainActivityMVP.Presenter;
 import com.baldev.answerme.views.adapters.MainFragmentPagerAdapter;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import javax.inject.Inject;
 
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityMVP.V
 
 			}
 		});
+		setupAds();
 	}
 
 	private void setupComponent() {
@@ -70,5 +74,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityMVP.V
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+	}
+
+
+	private void setupAds() {
+		AdView adView = (AdView) this.findViewById(R.id.ad_view);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		adView.loadAd(adRequest);
 	}
 }

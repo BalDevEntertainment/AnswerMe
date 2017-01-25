@@ -1,0 +1,26 @@
+package com.baldev.answerme.views.adapters;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.baldev.answerme.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+class AnswerViewHolder extends RecyclerView.ViewHolder {
+
+	@BindView(R.id.item_root_view) ViewGroup rootView;
+	@BindView(R.id.text_question) TextView answerText;
+
+	AnswerViewHolder(View itemView) {
+		super(itemView);
+		ButterKnife.bind(this, itemView);
+	}
+
+	ViewGroup getRootView() {
+		return this.rootView;
+	}
+}

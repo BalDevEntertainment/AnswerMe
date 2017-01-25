@@ -1,6 +1,9 @@
 package com.baldev.answerme.model.DTOs;
 
-public class AnswerDTO {
+
+import java.io.Serializable;
+
+public class AnswerDTO implements Serializable{
 
 	String answer;
 
