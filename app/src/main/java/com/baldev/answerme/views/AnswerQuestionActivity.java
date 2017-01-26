@@ -2,6 +2,8 @@ package com.baldev.answerme.views;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AnswerQuestionActivity extends AppCompatActivity {
+public class AnswerQuestionActivity extends AnswerMeActivity {
 
 	public static final String QUESTION_DTO = "QUESTION_DTO";
 
@@ -35,13 +37,17 @@ public class AnswerQuestionActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_answer_question);
-		ButterKnife.bind(this);
+
 		this.firebaseManager = new FirebaseManagerImplementation(this);
 		questionDTO = (QuestionDTO) getIntent().getExtras().getSerializable(QUESTION_DTO);
 		if(questionDTO != null){
 			this.questionText.setText(questionDTO.getQuestion());
 		}
+	}
+
+	@Override
+	protected int getLayoutResourceId() {
+		return R.layout.activity_answer_question;
 	}
 
 	@OnClick(R.id.button_send)
@@ -51,4 +57,5 @@ public class AnswerQuestionActivity extends AppCompatActivity {
 		this.firebaseManager.saveQuestionReply(questionDTO);
 		this.finish();
 	}
+
 }

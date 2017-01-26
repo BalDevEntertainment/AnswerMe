@@ -14,7 +14,7 @@ import java.util.List;
 public class AnswersListAdapter extends RecyclerView.Adapter<AnswerViewHolder> {
 
 	private List<AnswerDTO> answers = new ArrayList<>();
-	private AnswerAdapterListener listener;
+	private AnswerAdapterListener listener = new DummyListener();
 
 	public void setAnswers(List<AnswerDTO> answers) {
 		this.answers = answers;
@@ -50,5 +50,13 @@ public class AnswersListAdapter extends RecyclerView.Adapter<AnswerViewHolder> {
 
 	public interface AnswerAdapterListener {
 		void onAnswerClicked(AnswerDTO dto);
+	}
+
+	private class DummyListener implements AnswerAdapterListener {
+
+		@Override
+		public void onAnswerClicked(AnswerDTO dto) {
+			//do nothing
+		}
 	}
 }

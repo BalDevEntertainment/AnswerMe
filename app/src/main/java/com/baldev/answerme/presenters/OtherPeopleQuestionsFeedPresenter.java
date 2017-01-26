@@ -26,11 +26,13 @@ public class OtherPeopleQuestionsFeedPresenter implements Presenter, NewReplyLis
 
 	protected final FirebaseManager firebaseManager; // TODO: 22/01/2017 move to model
 
+
 	@Inject
 	public OtherPeopleQuestionsFeedPresenter(View view, DataModel dataModel) {
 		this.view = view;
 		this.dataModel = dataModel;
 		this.firebaseManager = new FirebaseManagerImplementation(((OtherPeopleQuestionsFeedFragment)view).getContext(), this); // TODO: 22/01/2017 move to model
+		onRefresh();
 	}
 
 	@Override

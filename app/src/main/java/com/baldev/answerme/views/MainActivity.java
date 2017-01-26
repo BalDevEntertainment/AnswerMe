@@ -3,8 +3,7 @@ package com.baldev.answerme.views;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.support.v7.widget.Toolbar;
 
 import com.baldev.answerme.R;
 import com.baldev.answerme.components.DaggerMainComponent;
@@ -14,13 +13,14 @@ import com.baldev.answerme.mvp.MainActivityMVP.Presenter;
 import com.baldev.answerme.views.adapters.MainFragmentPagerAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainActivityMVP.View {
+public class MainActivity extends AnswerMeActivity implements MainActivityMVP.View {
 
 	@BindView(R.id.view_pager_main)
 	ViewPager viewPager;
@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityMVP.V
 	@Inject
 	MainFragmentPagerAdapter pagerAdapter;
 
+	private FirebaseAnalytics firebaseAnalytics;
+	private AdView adView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_main);
+
 		this.setupComponent();
-		ButterKnife.bind(this);
 		this.viewPager.setAdapter(pagerAdapter);
 		tabLayout.addTab(tabLayout.newTab().setText(pagerAdapter.getPageTitle(0)));
 		tabLayout.addTab(tabLayout.newTab().setText(pagerAdapter.getPageTitle(1)));
@@ -62,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityMVP.V
 			}
 		});
 		setupAds();
+
+		firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+	}
+
+	@Override
+	protected int getLayoutResourceId() {
+		return R.layout.activity_main;
 	}
 
 	private void setupComponent() {
@@ -74,12 +83,18 @@ public class MainActivity extends AppCompatActivity implements MainActivityMVP.V
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		adView.destroy();
 	}
 
-
 	private void setupAds() {
-		AdView adView = (AdView) this.findViewById(R.id.ad_view);
+		adView = (AdView) this.findViewById(R.id.ad_view);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		adView.loadAd(adRequest);
+	}
+
+	public void logInAnalytics(String key, String id) {
+		Bundle bundle = new Bundle();
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id);
+		firebaseAnalytics.logEvent(key, bundle);
 	}
 }

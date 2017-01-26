@@ -35,7 +35,7 @@ public class OwnQuestionsFeedFragment extends OtherPeopleQuestionsFeedFragment i
 
 	@Override
 	public void openAnswerQuestionActivity(QuestionDTO questionDTO) {
-
+		((MainActivity)this.getActivity()).logInAnalytics("OwnQuestionsClicked", questionDTO.getId());
 	}
 
 	@Override
