@@ -19,4 +19,7 @@
     <string name="banner_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="banner_ad_my_questions_unit_id">ca-app-pub-9520134321001578/1500785648</string>
+    <string name="reply">Reply</string>
+    <string name="write_your_question">Write your question</string>
+    <string name="write_your_answer">Write your answer</string>
 </resources>

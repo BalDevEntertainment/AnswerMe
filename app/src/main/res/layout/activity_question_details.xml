@@ -12,8 +12,9 @@
         android:id="@+id/text_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:layout_below="@id/toolbar"
+        android:layout_margin="16dp"
+        android:textSize="@dimen/font_title"
         tools:text="Question text"/>
 
     <android.support.v7.widget.RecyclerView

@@ -26,4 +26,17 @@
         <item name="android:layout_marginBottom">@dimen/spacing_normal</item>
     </style>
 
+    <style name="edit_text_multiline">
+        <item name="android:gravity">top|left</item>
+        <item name="android:textSize">@dimen/font_body</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:lines">8</item>
+        <item name="android:maxLines">6</item>
+        <item name="android:minLines">6</item>
+        <item name="android:maxLength">4096</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+
 </resources>

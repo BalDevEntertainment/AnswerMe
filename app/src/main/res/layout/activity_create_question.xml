@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_margin="16dp"
-        android:inputType="textImeMultiLine"
-        android:textColor="@android:color/black"/>
+        android:hint="@string/write_your_question"
+        android:layout_marginTop="8dp"
+        style="@style/edit_text_multiline"/>
 
     <Button
         android:id="@+id/button_send"
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
         android:text="send"/>
 

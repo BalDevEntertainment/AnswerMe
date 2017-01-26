@@ -2,49 +2,40 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
-        android:allowBackup="true"
         android:name="com.baldev.answerme.AnswerMeApplication"
+        android:allowBackup="true"
         android:icon="@mipmap/icon_twitter"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.baldev.answerme.views.MainActivity"
-            android:label="@string/app_name">
-
+            android:name="com.baldev.answerme.views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <meta-data android:name="android.app.searchable"
-                       android:resource="@xml/searchable"/>
         </activity>
         <activity
             android:name="com.baldev.answerme.views.CreateQuestionActivity"
-            android:label="@string/app_name">
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
             android:name="com.baldev.answerme.views.AnswerQuestionActivity"
-            android:label="@string/app_name">
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-            android:name="com.baldev.answerme.views.QuestionDetailsActivity"
-            android:label="@string/app_name">
+            android:name="com.baldev.answerme.views.QuestionDetailsActivity">
         </activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="8bee4f87a0326b688f681ff4bf3d4d624c3f4499" />
+            android:value="8bee4f87a0326b688f681ff4bf3d4d624c3f4499"/>
     </application>
 
 </manifest>
