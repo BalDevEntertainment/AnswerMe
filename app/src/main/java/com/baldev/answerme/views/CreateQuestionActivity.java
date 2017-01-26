@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CreateQuestionActivity extends AppCompatActivity { // TODO: 22/01/2017 create MVP for class
+public class CreateQuestionActivity extends AnswerMeActivity { // TODO: 22/01/2017 create MVP for class
 
 	@BindView(R.id.edit_text_answer)
 	EditText questionField;
@@ -26,9 +26,12 @@ public class CreateQuestionActivity extends AppCompatActivity { // TODO: 22/01/2
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_create_question);
-		ButterKnife.bind(this);
 		this.firebaseManager = new FirebaseManagerImplementation(this);
+	}
+
+	@Override
+	protected int getLayoutResourceId() {
+		return R.layout.activity_create_question;
 	}
 
 	@OnClick(R.id.button_send)

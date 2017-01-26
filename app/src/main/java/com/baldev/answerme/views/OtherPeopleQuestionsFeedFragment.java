@@ -22,6 +22,7 @@ import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
 import com.baldev.answerme.views.adapters.QuestionsListAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.List;
 
@@ -108,6 +109,7 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 
 	@Override
 	public void openAnswerQuestionActivity(QuestionDTO questionDTO) {
+		((MainActivity) this.getActivity()).logInAnalytics("OtherPeopleQuestionClicked", questionDTO.getId());
 		Intent intent = new Intent(this.getActivity(), AnswerQuestionActivity.class);
 		intent.putExtra(AnswerQuestionActivity.QUESTION_DTO, questionDTO);
 		startActivity(intent);

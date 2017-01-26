@@ -13,7 +13,7 @@ import com.baldev.answerme.views.adapters.AnswersListAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class QuestionDetailsActivity extends AppCompatActivity {
+public class QuestionDetailsActivity extends AnswerMeActivity {
 
 	public static final String QUESTION_DTO = "QUESTION_DTO";
 
@@ -28,10 +28,8 @@ public class QuestionDetailsActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_question_details);
-		ButterKnife.bind(this);
 		questionDTO = (QuestionDTO) getIntent().getExtras().getSerializable(QUESTION_DTO);
-		if(questionDTO != null){
+		if (questionDTO != null) {
 			this.questionText.setText(questionDTO.getQuestion());
 		}
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -40,5 +38,10 @@ public class QuestionDetailsActivity extends AppCompatActivity {
 		adapter.setAnswers(questionDTO.getAnswers());
 		answersRecyclerView.setAdapter(adapter);
 
+	}
+
+	@Override
+	protected int getLayoutResourceId() {
+		return R.layout.activity_question_details;
 	}
 }
