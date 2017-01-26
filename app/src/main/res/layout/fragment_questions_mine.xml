@@ -27,8 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:src="@android:drawable/ic_menu_edit"
-        app:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/write_question"        app:backgroundTint="@color/colorPrimary"
         app:fabSize="normal"
         app:layout_anchor="@id/list_results"
         app:layout_anchorGravity="bottom|right|end"/>

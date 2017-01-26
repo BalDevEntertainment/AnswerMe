@@ -40,7 +40,10 @@ public class MainActivity extends AnswerMeActivity implements MainActivityMVP.Vi
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		if(getSupportActionBar() != null){
+			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+			getSupportActionBar().setIcon(R.drawable.icon_transparent);
+		}
 		this.setupComponent();
 		this.viewPager.setAdapter(pagerAdapter);
 		tabLayout.addTab(tabLayout.newTab().setText(pagerAdapter.getPageTitle(0)));
