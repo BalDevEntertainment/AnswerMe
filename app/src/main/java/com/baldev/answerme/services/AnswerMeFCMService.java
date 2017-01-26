@@ -23,7 +23,7 @@ public class AnswerMeFCMService extends FirebaseMessagingService implements NewR
 		if (notificationData != null) {
 
 			NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-			builder.setContentTitle(this.getString(R.string.notification_new_reply_title));
+			//builder.setContentTitle(this.getString(R.string.notification_new_reply_title));
 			builder.setContentText(notificationData.get(KEY_BODY));
 			//builder.setSmallIcon(R.drawable.logo_putify);
 			builder.setAutoCancel(true);

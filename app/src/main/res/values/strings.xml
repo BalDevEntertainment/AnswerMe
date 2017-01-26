@@ -3,23 +3,14 @@
     <string name="key_id">ID</string>
 
 
-    <!-- Item detail activity -->
-    <string name="item_detail_date">"Uploaded on"</string>
-    <string name="item_detail_owner">"Owner"</string>
-    <string name="item_detail_description">"Description"</string>
-    <string name="item_detail_views">"Views"</string>
-    <string name="item_detail_tags">"Tags"</string>
-    <string name="app_label">no seee</string>
-    <string name="search_hint">Search</string>
-    <string name="notification_new_reply_title">New reply!</string>
-
+    <string name="reply">Reply</string>
+    <string name="write_your_question">Write your question</string>
+    <string name="write_your_answer">Write your answer</string>
+    <string name="send">send</string>
 
 
     <!-- ADS -->
     <string name="banner_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="banner_ad_my_questions_unit_id">ca-app-pub-9520134321001578/1500785648</string>
-    <string name="reply">Reply</string>
-    <string name="write_your_question">Write your question</string>
-    <string name="write_your_answer">Write your answer</string>
 </resources>
