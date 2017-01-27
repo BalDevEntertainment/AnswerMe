@@ -1,7 +1,11 @@
 <resources>
+    <string name="app_name">AnswerMe</string>
+    <string name="key_id">ID</string>
+
     <string name="reply">Resposta</string>
     <string name="write_your_question">Digite sua pergunta</string>
     <string name="write_your_answer">Escreva uma resposta</string>
+    <string name="send">Enviar</string>
 
     <!-- ADS -->
     <string name="banner_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>

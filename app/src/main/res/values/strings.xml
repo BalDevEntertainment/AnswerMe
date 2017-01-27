@@ -2,12 +2,10 @@
     <string name="app_name">AnswerMe</string>
     <string name="key_id">ID</string>
 
-
     <string name="reply">Reply</string>
     <string name="write_your_question">Write your question</string>
     <string name="write_your_answer">Write your answer</string>
-    <string name="send">send</string>
-
+    <string name="send">Send</string>
 
     <!-- ADS -->
     <string name="banner_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>

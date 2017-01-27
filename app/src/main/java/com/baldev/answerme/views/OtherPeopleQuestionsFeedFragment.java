@@ -80,6 +80,7 @@ public class OtherPeopleQuestionsFeedFragment extends Fragment implements Questi
 
 	private void setupAdapter() {
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
+		layoutManager.setReverseLayout(true);
 		this.resultsList.setLayoutManager(layoutManager);
 		this.resultsList.setAdapter(this.adapter);
 		this.adapter.setListener(this.presenter);

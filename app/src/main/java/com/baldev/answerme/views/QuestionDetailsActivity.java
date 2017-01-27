@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.widget.TextView;
 
 import com.baldev.answerme.R;
@@ -33,6 +34,7 @@ public class QuestionDetailsActivity extends AnswerMeActivity {
 			this.questionText.setText(questionDTO.getQuestion());
 		}
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+		linearLayoutManager.setReverseLayout(true);
 		answersRecyclerView.setLayoutManager(linearLayoutManager);
 		AnswersListAdapter adapter = new AnswersListAdapter();
 		adapter.setAnswers(questionDTO.getAnswers());
