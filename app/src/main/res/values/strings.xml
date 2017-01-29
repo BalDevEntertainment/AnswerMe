@@ -7,6 +7,10 @@
     <string name="write_your_answer">Write your answer</string>
     <string name="send">Send</string>
 
+
+    <string name="my_questions">My questions</string>
+    <string name="other_people_questions">People questions</string>
+
     <!-- ADS -->
     <string name="banner_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 

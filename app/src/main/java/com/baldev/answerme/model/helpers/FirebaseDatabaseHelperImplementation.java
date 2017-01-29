@@ -149,7 +149,9 @@ public class FirebaseDatabaseHelperImplementation implements FirebaseDatabaseHel
 			public void onCancelled(DatabaseError databaseError) {
 			}
 		};
-		ownQuestionsReference.addValueEventListener(postListener);
+		if(ownQuestionsReference != null){ // TODO: 24/01/2017 fix this shit
+			ownQuestionsReference.addValueEventListener(postListener);
+		}
 	}
 
 	@Override

@@ -28,9 +28,9 @@
         android:id="@+id/ad_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_test_unit_id">
+        ads:adUnitId="@string/banner_ad_my_questions_unit_id">
     </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

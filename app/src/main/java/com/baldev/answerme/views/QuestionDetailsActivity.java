@@ -34,7 +34,6 @@ public class QuestionDetailsActivity extends AnswerMeActivity {
 			this.questionText.setText(questionDTO.getQuestion());
 		}
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-		linearLayoutManager.setReverseLayout(true);
 		answersRecyclerView.setLayoutManager(linearLayoutManager);
 		AnswersListAdapter adapter = new AnswersListAdapter();
 		adapter.setAnswers(questionDTO.getAnswers());

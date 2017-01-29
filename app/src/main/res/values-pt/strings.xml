@@ -7,6 +7,9 @@
     <string name="write_your_answer">Escreva uma resposta</string>
     <string name="send">Enviar</string>
 
+    <string name="my_questions">Minhas perguntas</string>
+    <string name="other_people_questions">Perguntas</string>
+
     <!-- ADS -->
     <string name="banner_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 

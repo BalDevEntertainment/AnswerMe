@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.baldev.answerme.R;
 import com.baldev.answerme.model.DTOs.QuestionDTO;
 import com.baldev.answerme.mvp.QuestionsFeedMVP.Presenter;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,8 @@ public class QuestionsListAdapter extends RecyclerView.Adapter<QuestionViewHolde
 	private List<QuestionDTO> questions = new ArrayList<>();
 	private QuestionAdapterListener listener;
 
-	public void setQuestions(List<QuestionDTO> tweets) {
-		this.questions = tweets;
+	public void setQuestions(List<QuestionDTO> questions) {
+		this.questions = Lists.reverse(questions);
 	}
 
 	public List<QuestionDTO> getQuestions() {

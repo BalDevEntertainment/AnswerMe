@@ -36,6 +36,20 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="8bee4f87a0326b688f681ff4bf3d4d624c3f4499"/>
+
+        <service
+            android:name="com.baldev.answerme.services.FCMInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.baldev.answerme.services.AnswerMeFCMService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import com.baldev.answerme.mvp.MainActivityMVP.Presenter;
 import com.baldev.answerme.mvp.MainActivityMVP.View;
 import com.baldev.answerme.presenters.MainPresenter;
+import com.baldev.answerme.views.MainActivity;
 import com.baldev.answerme.views.adapters.MainFragmentPagerAdapter;
 
 import dagger.Module;
@@ -32,6 +33,6 @@ public class MainModule {
 
 	@Provides
 	public MainFragmentPagerAdapter providePagerAdapter() {
-		return new MainFragmentPagerAdapter(fragmentManager);
+		return new MainFragmentPagerAdapter(fragmentManager, ((MainActivity)view));
 	}
 }

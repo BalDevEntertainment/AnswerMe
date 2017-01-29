@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.baldev.answerme.R;
 import com.baldev.answerme.model.DTOs.AnswerDTO;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class AnswersListAdapter extends RecyclerView.Adapter<AnswerViewHolder> {
 	private AnswerAdapterListener listener = new DummyListener();
 
 	public void setAnswers(List<AnswerDTO> answers) {
-		this.answers = answers;
+		this.answers = Lists.reverse(answers);
 	}
 
 	public List<AnswerDTO> getAnswers() {
